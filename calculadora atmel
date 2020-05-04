@@ -1,0 +1,40 @@
+;Rodrigo Valdez
+
+;Suma
+LDI R16,5
+LDI R17,4
+ADD R17,R16
+OUT PORTB, R17
+;Resta
+LDI R18,9
+LDI R19,5
+SUB R18,R19
+OUT DDRB, R20
+;Multiplicacion
+.DEF num1 = R21
+.DEF num2 = R22
+.DEF resu = R23
+.DEF aux = R24
+LDI num1, 3
+LDI num2, 2
+LDI resu, 0
+LDI aux, 1
+	multi:
+		ADD resu,num1
+		SUB num2,aux
+		BRCC multi
+		SUB resu,num1
+;Division
+.DEF divisor =R25
+.DEF dividendo =R26
+.DEF resultado =R27
+LDI divisor, 2
+LDI dividendo, 6
+LDI resultado, 0	
+	division:		
+		INC resultado 
+		SUB dividendo,divisor
+		BRCC division
+		DEC resultado
+	
+
